@@ -23,7 +23,10 @@ const startServer = async () => {
 };
 
 startServer();
+const seed = require("./src/config/seed");
 
+// after DB connection
+seed();
 process.on("SIGINT", async () => {
   logger.info("Shutting down server...");
   await require("mongoose").connection.close();
