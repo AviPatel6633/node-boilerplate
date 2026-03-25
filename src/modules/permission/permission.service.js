@@ -5,7 +5,7 @@ const createPermission = async (data) => {
 };
 
 const getAllPermissions = async () => {
-  return Permission.find();
+  return Permission.find().select("_id name");
 };
 
 module.exports = {

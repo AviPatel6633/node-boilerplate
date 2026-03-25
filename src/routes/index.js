@@ -3,10 +3,12 @@ const router = express.Router();
 const ApiResponse = require("../utils/ApiResponse");
 const ApiError = require("../utils/ApiError");
 
+const authRoute = require("../modules/auth/auth.route");
 const userRoutes = require("../modules/user/user.route");
 const roleRoutes = require("../modules/role/role.route");
 const permissionRoutes = require("../modules/permission/permission.route");
 
+router.use("/auth", authRoute);
 router.use('/user', userRoutes);
 router.use("/roles", roleRoutes);
 router.use("/permissions", permissionRoutes);

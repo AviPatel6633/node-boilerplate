@@ -21,6 +21,13 @@ const getUsers = async () => {
     return User.find().lean();
 }
 
+const getUsersWithPermissions = async () => {
+    return User.find()
+                .populate("role")
+                .populate("permissions")
+                .populate("deniedPermissions").lean();
+}
+
 // get users with filter by columns like role, permissions, deniedPermissions
 const filterUsers = async (filter) => {
     return User.find(filter);
@@ -90,6 +97,7 @@ module.exports  = {
     createUser,
     createManyUsers,
     getUsers,
+    getUsersWithPermissions,
     filterUsers,
     getUserById,
     findUserByParams,

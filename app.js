@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 
 const routes = require("./src/routes");
 const errorHandler = require("./src/middlewares/error.middleware");
@@ -24,6 +25,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(helmet());
 app.use(morgan("dev"));
+app.use(cookieParser());
 
 /* ===============================
    Body Parsers
