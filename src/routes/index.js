@@ -2,16 +2,14 @@ const express = require("express");
 const router = express.Router();
 const ApiResponse = require("../utils/ApiResponse");
 const ApiError = require("../utils/ApiError");
-// const menuRoutes = require('./../modules/menu/menu.routes')
-// const tourRoutes = require('./../modules/tour/tour.route')
-// Import module routes
-// const userRoutes = require('../modules/user/user.routes');
 
-// Mount module routes
+const userRoutes = require("../modules/user/user.route");
+const roleRoutes = require("../modules/role/role.route");
+const permissionRoutes = require("../modules/permission/permission.route");
 
-// router.use('/', menuRoutes);
-// router.use('/menu', menuRoutes);
-// router.use('/tour', tourRoutes);
+router.use('/user', userRoutes);
+router.use("/roles", roleRoutes);
+router.use("/permissions", permissionRoutes);
 
 // router.use("/", (req, res) => {
 //   res.status(200).json(new ApiResponse(200, "API is running 🚀"));
